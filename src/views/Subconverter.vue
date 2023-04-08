@@ -36,7 +36,7 @@
                     style="width: 100%"
                     v-model="form.customBackend"
                     :fetch-suggestions="backendSearch"
-                    placeholder="动动小手，（建议）自行搭建后端服务。例：http://127.0.0.1:25500/sub?"
+                    placeholder="直接用我的 https://cov.elmagnifico.tech/sub?"
                   >
                     <el-button slot="append" @click="gotoGayhub" icon="el-icon-link">前往项目仓库</el-button>
                   </el-autocomplete>
@@ -132,17 +132,6 @@
                   >复制</el-button>
                 </el-input>
               </el-form-item>
-              <el-form-item label="订阅短链:">
-                <el-input class="copy-content" disabled v-model="curtomShortSubUrl">
-                  <el-button
-                    slot="append"
-                    v-clipboard:copy="curtomShortSubUrl"
-                    v-clipboard:success="onCopy"
-                    ref="copy-btn"
-                    icon="el-icon-document-copy"
-                  >复制</el-button>
-                </el-input>
-              </el-form-item>
 
               <el-form-item label-width="0px" style="margin-top: 40px; text-align: center">
                 <el-button
@@ -151,13 +140,6 @@
                   @click="makeUrl"
                   :disabled="form.sourceSubUrl.length === 0"
                 >生成订阅链接</el-button>
-                <el-button
-                  style="width: 120px"
-                  type="danger"
-                  @click="makeShortUrl"
-                  :loading="loading"
-                  :disabled="customSubUrl.length === 0"
-                >生成短链接</el-button>
                 <!-- <el-button style="width: 120px" type="primary" @click="surgeInstall" icon="el-icon-connection">一键导入Surge</el-button> -->
               </el-form-item>
 
@@ -296,7 +278,7 @@ export default {
           ClashR: "clashr",
           Surge2: "surge&ver=2",
         },
-        backendOptions: [{ value: "http://127.0.0.1:25500/sub?" }],
+        backendOptions: [{ value: "https://cov.elmagnifico.tech/sub?" }],
         remoteConfig: [
           {
             label: "universal",
